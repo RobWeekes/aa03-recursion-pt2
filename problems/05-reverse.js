@@ -12,18 +12,40 @@ reverse("id"); // "di"
 reverse(""); // ""
 ***********************************************************************/
 
+let newStr = '';
 
 function reverse(str) {
 
+    let last = str[str.length - 1];
+    console.log(last);
+    let lastChar = '';
+    // lastChar.pop(last);    // could try array method later, tricky
+
+    if(str.length === 0) {
+        console.log(str)
+        let result = newStr;
+        newStr = '';
+        return result;
+    }
+
+    if (str.length !== 0) {
+        lastChar = str.slice(-1);
+        console.log(str);
+        console.log(lastChar);
+        console.log(newStr);
+        // newStr.push(lastChar);     // could try array method later
+        newStr = newStr + lastChar;   // newStr = newStr.concat(lastChar) also works
+        console.log(newStr);
+        return reverse(str.slice(0, -1));
+    }
 }
 
-
-reverse("house"); // "esuoh"
-reverse("dog"); // "god"
-reverse("atom"); // "mota"
-reverse("q"); // "q"
-reverse("id"); // "di"
-reverse(""); // ""
+console.log(reverse("house")); // "esuoh"
+console.log(reverse("dog")); // "god"
+console.log(reverse("atom")); // "mota"
+console.log(reverse("q")); // "q"
+console.log(reverse("id")); // "di"
+console.log(reverse("")); // ""
 
 
 /**************DO NOT MODIFY ANYTHING UNDER THIS LINE*****************/
