@@ -43,11 +43,11 @@ console.log(addToTwelve([1])); // false
 // let newArr = [];
 function addToTwelve2(arr) {
   // debugger
-  // console.log(arr);
-  // arr.slice(1);       // slice doesnt change the original arr
-  // console.log(arr);
-  // newArr = arr.slice(1);
-  // console.log(newArr);   // dont need newArr, passing in sliced array on line 63
+  console.log(arr);
+  arr.slice(1);       // slice doesnt change the original arr
+  console.log(arr);
+  newArr = arr.slice(1);
+  console.log(newArr);   // dont need newArr, passing in sliced array on line 63
 
   if(arr.length === 0 ){
       return false;
