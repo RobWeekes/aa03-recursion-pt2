@@ -56,12 +56,12 @@ function addToTwelve2(arr) {
   if(arr.length !== 0){
       let last = arr[arr.length - 1];
       console.log(last);
-      if(last + arr[arr.length - 2] === 12){
+      if(arr[0] + arr[1] === 12){
           return true;
       }
       else {
           // return addToTwelve2(arr.slice(1));
-          return addToTwelve2(arr.slice(0, arr.length - 1));
+          return addToTwelve2(arr.slice(1));
       }
   }
 }
