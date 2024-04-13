@@ -19,59 +19,39 @@ exponent(3, 2); // 9
 exponent(2, -2); // 1/4 (or 0.25)
 exponent(5, 5); // 3125
 ***********************************************************************/
+
 let product = 1;
 function exponent(num, power) {
 
-    // base case    // tried to use same base case for both, seemed unsuitable
-    // if(Math.abs(power) === 1) {
-    //     let result = product;
-    //     product = 1;
-    //     return result;
-    // }
+    if(power === 0) {           // base case pos
+        let result = product;
+        product = 1;
+        return result;
+    }
 
     if(power > 0) {     // positive exponents --
 
-        if(power === 1) {           // base case pos
-            let result = product;
-            product = 1;
-            return result;
-        }
-
-        if(power !== 1) {
             // debugger
             product = product * num;
             console.log(product);
-            power -= 1;
+            // power -= 1;
             console.log(power);
-            return exponent(product, power);
-        }
+            return exponent(num, power - 1);
     }
 
     if(power < 0) {     // negative exponents --
-        // let inverse = 1 / num;
-        // console.log(inverse);
-
-        if(power === 0) {           // base case neg
-            let result = product;
-            product = 1;
-            return result;
-        }
-
-        if(power !== 0) {
 
             console.log(power);
             power += 1;
             console.log(power);
             product = product / num;
             console.log(product);
-            return exponent(product, power);
-        }
+            return exponent(num, power);
     }
-
 }
 
-// console.log(exponent(3, 2)); // 9
-// console.log(exponent(2, -2)); // 1/4 (or 0.25)
+console.log(exponent(3, 2)); // 9
+console.log(exponent(2, -2)); // 1/4 (or 0.25)
 console.log(exponent(5, 5)); // 3125
 console.log(Math.pow(5, 5));
 
