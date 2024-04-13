@@ -1,5 +1,5 @@
 /***********************************************************************
-Write a recursive function called `exponent` that takes two integers, 
+Write a recursive function called `exponent` that takes two integers,
 `num` and `power`, and returns `num` raised to the `power`th power. Your
 function should work when `num` or `power` are positive OR negative.
 
@@ -19,11 +19,100 @@ exponent(3, 2); // 9
 exponent(2, -2); // 1/4 (or 0.25)
 exponent(5, 5); // 3125
 ***********************************************************************/
-
+let product = 1;
 function exponent(num, power) {
-    // Your code here 
+
+    // base case    // tried to use same base case for both, seemed unsuitable
+    // if(Math.abs(power) === 1) {
+    //     let result = product;
+    //     product = 1;
+    //     return result;
+    // }
+
+    if(power > 0) {     // positive exponents --
+
+        if(power === 1) {           // base case pos
+            let result = product;
+            product = 1;
+            return result;
+        }
+
+        if(power !== 1) {
+            // debugger
+            product = product * num;
+            console.log(product);
+            power -= 1;
+            console.log(power);
+            return exponent(product, power);
+        }
+    }
+
+    if(power < 0) {     // negative exponents --
+        // let inverse = 1 / num;
+        // console.log(inverse);
+
+        if(power === 0) {           // base case neg
+            let result = product;
+            product = 1;
+            return result;
+        }
+
+        if(power !== 0) {
+
+            console.log(power);
+            power += 1;
+            console.log(power);
+            product = product / num;
+            console.log(product);
+            return exponent(product, power);
+        }
+    }
+
 }
-  
+
+// console.log(exponent(3, 2)); // 9
+// console.log(exponent(2, -2)); // 1/4 (or 0.25)
+console.log(exponent(5, 5)); // 3125
+console.log(Math.pow(5, 5));
+
+console.log(exponent(2, -3));
+console.log(Math.pow(2, -3));
+
+
+// try solution with standard for loop --
+
+function exponent2(num2, power2) {
+let product2 = 1;
+
+    if(power2 > 0) {      // positive exponents --
+        for(let i = 0; i < power2; i++) {
+            product2 = product2 * num2;
+            console.log(num2);
+        }
+        return product2;
+    }
+
+    if(power2 < 0) {      // negative exponents --
+        for(let j = power2; j < 0; j++) {
+            product2 = product2 / num2;
+            console.log(num2);
+        }
+        return product2;
+    }
+}
+
+console.log(exponent2(3, 2)); // 9
+console.log(exponent2(2, -2)); // 1/4 (or 0.25)
+console.log(exponent2(5, 5)); // 3125
+
+console.log(exponent2(2, -3));
+
+// console.log(Math.pow(3, 2)); // 9
+// console.log(Math.pow(2, -2)); // 1/4 (or 0.25)
+// console.log(Math.pow(5, 5)); // 3125
+// console.log(Math.pow(2, -3));
+
+
 /**************DO NOT MODIFY ANYTHING UNDER THIS LINE*****************/
 try {
     module.exports = exponent;
