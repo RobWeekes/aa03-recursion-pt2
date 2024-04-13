@@ -59,6 +59,34 @@ console.log(exponent(2, -3));
 console.log(Math.pow(2, -3));
 
 
+        // Davidsons solution
+function exponent3(num, power) {
+
+    if (power === 0){
+    return 1;
+}
+// if my power is positive
+    if (power > 0){
+    // return the number * the function call with power -1 to recurse until 0
+    return num * exponent(num, power - 1);
+}
+
+//  if my power is negative
+    else {
+    // return number divided by the function call flip power sign
+        return 1 / (num * exponent(num, -power - 1))
+    }
+}
+
+console.log(exponent3(3, 2)); // 9
+console.log(exponent3(2, -2)); // 1/4 (or 0.25)
+console.log(exponent3(5, 5)); // 3125
+console.log(Math.pow(5, 5)); // 3125
+
+console.log(exponent3(2, -3));  // 0.125
+console.log(Math.pow(2, -3)); // 0.125
+
+
 // try solution with standard for loop --
 
 function exponent2(num2, power2) {
